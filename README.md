@@ -1,0 +1,1 @@
+make migrate-up DATABASE_URL="postgres://username:password@localhost:5432/database_name?sslmode=disable"

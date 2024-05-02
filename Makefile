@@ -26,4 +26,13 @@ run:
 deps:
 	$(GOGET) mod tidy
 
+migration_up: 
+	migrate -path database/migration/ -database "$(DATABASE_URL)" -verbose up
+
+migration_down: 
+	migrate -path database/migration/ -database "$(DATABASE_URL)" -verbose down
+
+migration_fix: 
+	migrate -path database/migration/ -database "$(DATABASE_URL)" force VERSION
+
 .PHONY: all build test clean run
