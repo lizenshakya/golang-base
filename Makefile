@@ -35,4 +35,7 @@ migration_down:
 migration_fix: 
 	migrate -path database/migration/ -database "$(DATABASE_URL)" force VERSION
 
-.PHONY: all build test clean run
+lint:
+	golangci-lint run
+
+.PHONY: all build test clean run lint
